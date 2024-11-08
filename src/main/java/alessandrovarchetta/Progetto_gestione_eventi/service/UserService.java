@@ -4,7 +4,7 @@ package alessandrovarchetta.Progetto_gestione_eventi.service;
 import alessandrovarchetta.Progetto_gestione_eventi.entities.User;
 import alessandrovarchetta.Progetto_gestione_eventi.exception.BadRequestException;
 import alessandrovarchetta.Progetto_gestione_eventi.exception.NotFoundException;
-import alessandrovarchetta.Progetto_gestione_eventi.payloads.NewUserDTO;
+import alessandrovarchetta.Progetto_gestione_eventi.payloads.UserDTO;
 import alessandrovarchetta.Progetto_gestione_eventi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,7 +33,7 @@ public class UserService {
     }
 
     //POST
-    public User save(NewUserDTO body) {
+    public User save(UserDTO body) {
         //controllo se ci sta già un altro con la stessa email
         this.userRepository.findByEmail(body.email()).ifPresent(
                 user -> {
@@ -51,7 +51,7 @@ public class UserService {
     }
 
     //PUT --------------------------------------------
-    public User findByIdAndUpdate(long id, NewUserDTO body) {
+    public User findByIdAndUpdate(long id, UserDTO body) {
         User found = this.findById(id);
 
         if (!found.getEmail().equals(body.email())) {

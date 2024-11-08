@@ -26,8 +26,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Roles roles; //può essere ADMIN o UTENT
 
-    public User(String email){
-        this.email = email;
+    public User(){
     }
 
     public User(String name, String surname, String username, String email, String password, Roles roles) {

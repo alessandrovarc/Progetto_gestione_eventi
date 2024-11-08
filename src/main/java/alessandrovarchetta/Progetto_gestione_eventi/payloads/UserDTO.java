@@ -4,12 +4,12 @@ package alessandrovarchetta.Progetto_gestione_eventi.payloads;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
-public record NewUserDTO(
-        @NotEmpty(message = "Lo username è obbligatorio")
+public record UserDTO(
+        @NotEmpty(message = "L' username è obbligatorio")
         String username,
-        @NotEmpty(message = "Il nome è obbligatoria")
+        @NotEmpty(message = "Il nome è obbligatorio")
         String nome,
-        @NotEmpty(message = "Il cognome è obbligatoria")
+        @NotEmpty(message = "Il cognome è obbligatorio")
         String cognome,
         @NotEmpty(message = "L'email è obbligatoria")
         @Email(message = "L'email deve essere valida")

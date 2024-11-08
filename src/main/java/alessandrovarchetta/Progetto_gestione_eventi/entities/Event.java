@@ -1,6 +1,7 @@
 package alessandrovarchetta.Progetto_gestione_eventi.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDate;
 
@@ -18,7 +19,7 @@ public class Event {
     private int availableSeats;
 
     @ManyToOne
-    @JoinColumn(name = "User_id")
+    @JoinColumn(name = "user_id")
     private User organizer;
 
     public Event(String title, String description, LocalDate date, String location, int availableSeats, User organizer) {
@@ -46,7 +47,7 @@ public class Event {
         this.title = title;
     }
 
-    public String getDescription() {
+    public String getDescription(@NotEmpty(message = "La descrizione è obbligatoria") String descrizione) {
         return description;
     }
 

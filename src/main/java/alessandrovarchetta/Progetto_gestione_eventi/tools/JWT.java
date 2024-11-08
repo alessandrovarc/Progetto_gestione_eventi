@@ -15,6 +15,8 @@ public class JWT {
     @Value("${jwt.secret}")
     private String secret;
 
+
+
     public String createToken(User user) {
         Extension utente;
         return Jwts.builder()
